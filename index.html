@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Point List</title><style>
+body { margin:0; font-family:Arial; background:#0b1220; color:white; }
+header { text-align:center; font-size:28px; padding:20px; background:#0f1a2e; }
+.tabs { display:flex; justify-content:center; gap:10px; padding:10px; }
+.tab { padding:10px 15px; background:#1b2a45; border-radius:10px; cursor:pointer; }
+.tab.active { background:#4da3ff; }
+.page { display:none; padding:15px; }
+.page.active { display:block; }
+.card { background:#13213a; padding:15px; margin-bottom:10px; border-radius:12px; }
+.profile-card { background:#13213a; padding:20px; border-radius:15px; }
+.avatar { font-size:40px; text-align:center; }
+.tags span { display:inline-block; background:#1b2a45; padding:5px 10px; margin:3px; border-radius:8px; }
+button { padding:10px; border:none; border-radius:10px; background:#4da3ff; color:white; }
+input { width:100%; padding:10px; margin-bottom:10px; border-radius:10px; border:none; }
+</style></head>
+<body><header>Point List</header><div class="tabs">
+  <div class="tab active" onclick="openTab('levels')">Levels</div>
+  <div class="tab" onclick="openTab('players')">Players</div>
+  <div class="tab" onclick="openTab('upcoming')">Upcoming</div>
+  <div class="tab" onclick="openTab('submit')">Submit</div>
+</div><!-- LEVELS --><div id="levels" class="page active">
+  <div class="card">#1 Goobolplex 3<br>🔥 Insane • 290 баллов</div>
+  <div class="card">#2 Goblinplex 3<br>🔥 Insane • 205 баллов</div>
+  <div class="card">#3 Goobolplexis<br>🔥 Insane • 193 балла</div>
+  <div class="card">#4 GoobolplexiOfficial<br>🔥 Insane • 180 баллов</div>
+  <div class="card">#5 Goblinplex 4<br>⚡ Harder • 176 баллов</div>
+  <div class="card">#6 Gobliniplex Remake<br>⚡ Harder • 140 баллов</div>
+  <div class="card">#7 Tarintar<br>⚡ Harder • 110 баллов</div>
+  <div class="card">#8 Drochilnya Funk<br>⚡ Harder • 98 баллов</div>
+</div><!-- PLAYERS --><div id="players" class="page">
+  <div class="card" onclick="openProfile('profile-wizzur')">🇰🇿 Wizzur</div>
+  <div class="card" onclick="openProfile('profile-leonchok')">🇰🇿 Leonchok</div>
+</div><!-- UPCOMING --><div id="upcoming" class="page">
+  <div class="card">Endby Remake: 38%</div>
+  <div class="card">Endblazer: 26%</div>
+  <div class="card">Granta: 0%</div>
+</div><!-- SUBMIT --><div id="submit" class="page">
+  <input placeholder="Название уровня">
+  <input placeholder="Ссылка на видео">
+  <button onclick="sendRecord()">Отправить</button>
+</div><!-- PROFILE WIZZUR --><div id="profile-wizzur" class="page">
+  <button onclick="openTab('players')">⬅ Назад</button>
+  <div class="profile-card">
+    <div class="avatar">🇰🇿</div>
+    <h2>Wizzur</h2>
+    <p>#1 Место</p>
+    <p>🏆 Очки: 1392</p>
+    <p>💎 Ранг: Pro</p>
+    <p>Hardest: X</p>
+    <h3>Пройденные уровни</h3>
+    <div class="tags">
+      <span>Goobolplex 3</span><span>Goblinplex 3</span><span>Goobolplexis</span>
+      <span>GoobolplexiOfficial</span><span>Goblinplex 4</span><span>Gobliniplex Remake</span>
+      <span>Tarintar</span><span>Drochilnya Funk</span>
+      <span>Goobolplexi</span><span>Goobolplexi 2</span><span>Goobolplexi 3 Old</span>
+    </div>
+  </div>
+</div><!-- PROFILE LEONCHOK --><div id="profile-leonchok" class="page">
+  <button onclick="openTab('players')">⬅ Назад</button>
+  <div class="profile-card">
+    <div class="avatar">🇰🇿</div>
+    <h2>Leonchok</h2>
+    <p>#2 Место</p>
+    <p>🏆 Очки: 93</p>
+    <p>Hardest: Ultra Paracosm</p>
+    <h3>Пройденные уровни</h3>
+    <div class="tags">
+      <span>Goobolplexi</span>
+      <span>Goobolplexi 2</span>
+      <span>Goobolplexi 3 Old</span>
+    </div>
+  </div>
+</div><script>
+function openTab(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function openProfile(id){openTab(id);} 
+function sendRecord(){window.location.href="mailto:newturbogamesofficial@gmail.com?subject=Рекорд&body=Я прошел уровень 'Один из уровней', ссылка: ссылка";}
+</script></body>
+</html>
